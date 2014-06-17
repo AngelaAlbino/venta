@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+    <!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>TRANS COPACABANA</title>
+	<meta name="description" content="Free Html5 Templates and Free Responsive Themes Designed by Kimmy | zerotheme.com">
+	<meta name="author" content="www.zerotheme.com">
+
+	
+    <!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <!-- CSS
+  ================================================== -->
+  	<link rel="stylesheet" href="{{STATIC_URL}}css/zerogrid.css">
+	<link rel="stylesheet" href="{{STATIC_URL}}css/style.css">
+    <link rel="stylesheet" href="{{STATIC_URL}}css/responsive.css">
+	<link rel="stylesheet" href="{{STATIC_URL}}css/responsiveslides.css" />
+	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/menu-2.css">
+	
+	<!--[if lt IE 8]>
+       <div style=' clear: both; text-align:center; position: relative;'>
+         <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+           <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+        </a>
+      </div>
+    <![endif]-->
+    <!--[if lt IE 9]>
+		<script src="js/html5.js"></script>
+		<script src="js/css3-mediaqueries.js"></script>
+	<![endif]-->
+	
+	<link href='{{STATIC_URL}}images/favicon.ico' rel='icon' type='image/x-icon'/>
+	<script src="{{STATIC_URL}}js/jquery.min.js"></script>
+	<script src="{{STATIC_URL}}js/responsiveslides.js"></script>
+	<script>
+		$(function () {
+		  $("#slider").responsiveSlides({
+			auto: true,
+			pager: false,
+			nav: true,
+			speed: 500,
+			maxwidth: 962,
+			namespace: "centered-btns"
+		  });
+		});
+	</script><!--< Navbar starts -->
+	<script>
+		function passwords(Document.formu)
+		{
+			alert (Document.formu.password);
+		}
+	</script>
+</head>
+<body>
+<!--------------Header-------------->
+<header>
+	<div class="wrap-header zerogrid">
+		<div id="logo"><a href="#"><img src="{{STATIC_URL}}images/copacabana.png"/></a></div>
+		
+		<div id="search">
+			<div class="button-search"></div>
+			<input type="text" value="Search..." onfocus="if (this.value == &#39;Search...&#39;) {this.value = &#39;&#39;;}" onblur="if (this.value == &#39;&#39;) {this.value = &#39;Search...&#39;;}">
+		</div>
+	</div>
+</header>
+<!--<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <div class="nav-collapse collapse">
+          <ul class="nav pull-right">
+            <li><a href="/db/cerrarsesion/">cerrar seccion</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">registrar<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                          <li><a href="/db/new/usuario/">nuevo usuario</a></li>
+                          <li><a href="/db/password_nuevo/">cambiar password</a></li>
+             </ul>
+            </li> 
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>-->
+
+<!--<nav>
+	<div class="wrap-nav zerogrid">
+		<div class="menu">
+			<ul>
+				<li class="current"><a href="/db/menu/">INICIO</a></li>
+				<li><a href="blog.html">SUGERENCIA DE VIAJE</a></li>
+				<li><a href="gallery.html">TURISMO</a></li>
+				<li><a href="single.html">RESERVAS</a></li>
+				<li><a href="contact.html">VENTAS</a></li>
+				<li>
+					<a href="#">USUARIO</a>
+					
+				</li>
+			</ul>
+
+		</div>
+		
+</nav>-->
+<nav>
+	<div class="zerogrid">
+		<div id='cssmenu'>
+			<ul>
+			   <li class='active'><a href='/db/menu/'><span>INICIO</span></a></li>
+			   <li><a href='/db/menu/sugerenciaslink/'><span>SUGERENCIAS DE VIAJE</span></a></li>
+			   <li><a href='/db/menu/turismolink/'><span>TURISMO</span></a></li>
+			   <li><a href='/db/menu/reservaslink/'><span>RESERVAS</span></a></li>
+			   <li><a href='/db/menu/ventaslink/'><span>VENTAS</span></a></li>
+			 {%if user.is_authenticated %}
+			   <li class='last'><a href='/db/cerrarsesion/'><span>CERRAR SESSION</span></a>
+			   <li><a href="/db/password_nuevo/">CAMBIAR CONTRASEÑA</a></li>
+			 {% else %}
+			   <li class='has-sub last'><a href="/db/menu/loginlink/"><span>INICIAR SECCION</span></a>
+			   </li>
+			   <li><a href="/db/new/usuario/"><span>NUEVO USUARIO</span></a></li>
+			  {%endif%}
+			         <!--li><a href="/db/new/usuario/"><span>NUEVO USUARIO</span></a></li>
+			         <li><a href="/db/password_nuevo/">CAMBIAR CONTRASEÑA</a></li>
+			         <!--<li class='has-sub last'><a href=""><span>cerrar seccion2</span></a>
+			         	<ul class='last'>
+			         		<li><a href=""><span>uno</span></a></li>
+			         		<li><a href=""><span>dos</sapn></a></li>
+			         	</ul>
+			         </li>-->
+			      </ul>
+			   </li>
+			   {%if user.is_authenticated%}
+			   <li><a href='/db/menu/buseslink/'><span>BUSES</span></a></li>
+			   <li><a href='/db/menu/usuarioslink/'><span>USUARIOS</span></a></li>
+			   <li><a href='/db/menu/rutaslink/'><span>RUTAS</span></a></li>
+			   <li><a href='/db/menu/salidaslink/'><span>SALIDAS</span></a></li>
+			   {%endif%}
+			</ul>
+		</div>
+	</div>
+</nav>
+
+{% block container %}
+{% endblock %}
+
+</body></html>
