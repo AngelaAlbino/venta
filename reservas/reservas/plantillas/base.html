@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{STATIC_URL}}css/responsive.css">
 	<link rel="stylesheet" href="{{STATIC_URL}}css/responsiveslides.css" />
 	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/menu-2.css">
+	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/asientos.css">
 	
 	<!--[if lt IE 8]>
        <div style=' clear: both; text-align:center; position: relative;'>
@@ -118,17 +119,37 @@
 		<div id='cssmenu'>
 			<ul>
 			   <li class='active'><a href='/db/menu/'><span>INICIO</span></a></li>
-			   <li><a href='/db/menu/sugerenciaslink/'><span>SUGERENCIAS DE VIAJE</span></a></li>
-			   <li><a href='/db/menu/turismolink/'><span>TURISMO</span></a></li>
-			   <li><a href='/db/menu/reservaslink/'><span>RESERVAS</span></a></li>
-			   <li><a href='/db/menu/ventaslink/'><span>VENTAS</span></a></li>
-			 {%if user.is_authenticated %}
-			   <li class='last'><a href='/db/cerrarsesion/'><span>CERRAR SESSION</span></a>
-			   <li><a href="/db/password_nuevo/">CAMBIAR CONTRASEÑA</a></li>
+			   {%if user.is_authenticated %}
+			   		<li class='has-sub last'><a href=""><span>AGREGAR SUGERENCIAS</span></a>
+			         	<ul class='last'>
+			         		<li><a href='/db/menu/rutaslink/'><span>RUTAS</span></a></li>
+			         		<li><a href='/db/menu/salidaslink/'><span>SALIDAS</span></a></li>
+			         	</ul>
+			         </li>
+			   	{% else %}
+			   		<li><a href='/db/menu/sugerenciaslink/'><span>SUGERENCIAS DE VIAJE</span></a></li>
+			   	{% endif %}
+
+			   <li><a href='/db/menu/turismolink/'><span>TURISMO</span></a></li>			  
+			   <!--li><a href='/db/menu/reservaslink/'><span>RESERVAS</span></a></li-->
+			   	{%if user.is_authenticated %}
+			   		<li><a href='/db/menu/sugerenciaslink/'><span>VENTAS</span></a></li>
+			   		<li><a href='/db/menu/buseslink/'><span>BUSES</span></a></li>
+			   		<!--<li><a href='/db/menu/ventaslink/'><span>VENTAS</span></a></li>-->
+			   	{% endif %}
+			 	{%if user.is_authenticated %}
+			 	<li class='has-sub last'><a href=""><span>ADMINISTRADOR</span></a>
+		         	<ul class='last'>
+		         		<li><a href="/db/password_nuevo/">CAMBIAR CONTRASEÑA</a></li>
+		         		<li><a href='/db/menu/usuarioslink/'><span>NUEVO USUARIO</span></a></li>
+		         		<li><a href='/db/cerrarsesion/'><span>CERRAR SESSION</span></a>
+		         	</ul>
+		         </li>
+		         <li class='has-sub last'><a href="/db/menu/facturarlink/"><span>FACTURAR</span></a>		   
 			 {% else %}
 			   <li class='has-sub last'><a href="/db/menu/loginlink/"><span>INICIAR SECCION</span></a>
 			   </li>
-			   <li><a href="/db/new/usuario/"><span>NUEVO USUARIO</span></a></li>
+			   <!--<li><a href="/db/menu/usuario/"><span>NUEVO USUARIO</span></a></li>-->
 			  {%endif%}
 			         <!--li><a href="/db/new/usuario/"><span>NUEVO USUARIO</span></a></li>
 			         <li><a href="/db/password_nuevo/">CAMBIAR CONTRASEÑA</a></li>
@@ -138,14 +159,6 @@
 			         		<li><a href=""><span>dos</sapn></a></li>
 			         	</ul>
 			         </li>-->
-			      </ul>
-			   </li>
-			   {%if user.is_authenticated%}
-			   <li><a href='/db/menu/buseslink/'><span>BUSES</span></a></li>
-			   <li><a href='/db/menu/usuarioslink/'><span>USUARIOS</span></a></li>
-			   <li><a href='/db/menu/rutaslink/'><span>RUTAS</span></a></li>
-			   <li><a href='/db/menu/salidaslink/'><span>SALIDAS</span></a></li>
-			   {%endif%}
 			</ul>
 		</div>
 	</div>

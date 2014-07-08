@@ -10,7 +10,12 @@ urlpatterns = patterns('',
 	url(r'^db/new/usuario/$',nuevo_usuario),
 	url(r'^db/menu/sugerenciaslink/',sugerencia),
 	url(r'^db/menu/turismolink/',la_pazView),
-	url(r'^db/menu/reservaslink/',reservasView),
+	url(r'^db/menu/ciudades/lapazlink',la_pazView),
+	url(r'^db/menu/guardadolink/',guardadoView),
+
+	url(r'^db/menu/reservaslink/(?P<idrutas>\d+)/(?P<tipo>\d+)/(?P<precio>.*)/$',reservasView),
+
+
 	url(r'^db/menu/ventaslink/',ventasView),
 	url(r'^db/menu/ciudades/orurolink/',oruroView),
 	url(r'^db/menu/ciudades/potosilink/',potosiView),
@@ -21,5 +26,6 @@ urlpatterns = patterns('',
 	url(r'^db/menu/buseslink/',busView),
 	url(r'^db/menu/usuarioslink/',usuariosView),
 	url(r'^db/menu/salidaslink/',salidasView),
+	url(r'^db/menu/facturarlink/',facturarView),
 
 )

@@ -5,7 +5,7 @@
 		<div class="row block03">
 			<div class="col-2-3">
 				<div class="wrap-col">
-					<nav>
+					<!--<nav>
 						<div class="zerogrid">
 							<div id='cssmenu'>
 								<ul>
@@ -23,18 +23,125 @@
 								</ul>
 							</div>
 						</div>
-					</nav>
+					</nav>-->
+					<script>
+						function oprime(dato){
+							$("#id_asiento").val(dato);
+						}
+						function ver(i)
+						{
+							alert("Esto mandaste tu :"+i)
+							$("#name").val(i);
+						}
+						function esto(AIV,AIP,ADV,ADP,id)
+						{
+							$("#id_bus").val(id);
+							$(".contenedor").remove();
+
+							/*$("#dussalida").val(id);
+							form=$("#formubus").serializeObject();
+							$.ajax({
+								url: '/db/menu/asientos/',
+								type: 'POST',
+								data:form ,
+							})
+							.done(function(html) {
+								$("#buscarText").html(html)
+							})
+							.fail(function() {
+								console.log("error");
+							})
+							.always(function() {
+								console.log("complete");
+							});*/
+
+
+							var uno=1;
+							var dos=2;
+							var tres=3;
+							var cuatro=4;
+							if (ADP==0) {
+								var incremento=3;
+							}
+							else{
+								var incremento=4;
+							}
+							$("#body").append("<div class='contenedor'><div class='contenedor-asientos'><div class='cuadros1'></div><div class='cuadros2'></div><div class='cuadros3'></div><div class='cuadros4'></div></div></div>");
+							for (var i = 1; i <= AIV; i++) {
+								$(".cuadros1").append("<div id='nombre' onclick='oprime("+uno+")'><span class='testo' name='esto'><h4>"+uno+"</h4></span></div>");
+								uno=uno+incremento;
+							}
+							for (var i = 1; i <= AIP; i++) {
+								$(".cuadros2").append("<div id='nombre' onclick='oprime("+dos+")'><span class='testo' name='esto'><h4>"+dos+"</h4></span></div>");
+								dos=dos+incremento;
+							}
+							for (var i = 1; i <= ADV; i++) {
+								$(".cuadros3").append("<div id='nombre' onclick='oprime("+tres+")'><span class='testo' name='esto'><h4>"+tres+"</h4></span></div>");
+								tres=tres+incremento;
+							}
+							for (var i = 1; i <= ADP; i++) {
+								$(".cuadros4").append("<div id='nombre' onclick='oprime("+cuatro+")'><span class='testo' name='esto'><h4>"+cuatro+"</h4></span></div>");
+								cuatro=cuatro+incremento;
+							}
+
+							$("#id_cantidad").val(1);
+							$("#id_costo_total").val({{ precio }});
+							
+
+      						$("#capa").addClass("clasecss");
+						   	$("#capa").removeClass("clasecss");
+					   		
+							
+						}
+
+
+					</script>
 					<article>
-						<img src="images/img1.png"/>
+						<br>
+						<div id="nombre">
+							{{ precio }}
+
+						</div>
+						<br>
+						{{ tipo }}
+						<br>
+						{% for s in salidas %}
+							{% for b in bus %}
+								{% if s.id_bus_id == b.id %}
+									{% if b.tipo == "CAMA" and tipo == "1" %}
+										<button id="BUS{{b.id}}" type"button" name="bus{{b.id}}" onclick="esto({{b.asi_izq_ven}},{{b.asi_izq_pas}},{{b.asi_der_ven}},{{b.asi_der_pas}},{{b.id}})">
+										BUS CAMA :{{b.id}}
+										</button>
+									{% endif %}
+									{% if b.tipo == "SEMICAMA" and tipo == "2" %}
+										<button id="SEMICAMA" type"button" name="bus{{b.id}}" onclick="esto({{b.asi_izq_ven}},{{b.asi_izq_pas}},{{b.asi_der_ven}},{{b.asi_der_pas}},{{b.id}})">
+										BUS SEMICAMA :{{b.id}}
+										</button>
+									{% endif %}
+									{% if b.tipo == "NORMAL" and tipo == "3" %}
+										<button id="NORMAL" type"button" name="bus{{b.id}}" onclick="esto({{b.asi_izq_ven}},{{b.asi_izq_pas}},{{b.asi_der_ven}},{{b.asi_der_pas}},{{b.id}})">
+										BUS NORMAL :{{b.id}}
+										</button>
+									{% endif %}
+								{% endif %}
+							{% endfor %}
+						{% endfor %}
+						<div id="body">
+							<form id="formubus" method="POST" action="">
+								{% csrf_token %}
+								<input type="hidden" id="bussalida" name="id_bus" value="">
+							</form>
+
+						</div>
+
 						<h2><a href="#">FORMULARIO DE RESERVA</a></h2>
-						
 						<div class="comment">
 							Ingrese sus datos Por favor *
-							<form>
-								<div><input type="text" name="ci" id="name"> C.I. *</div>
-								<div><input type="email" name="nombre" id="email"> Nombre *</div>
-								<div><input type="url" name="correoElectronico" id="website">Correo electronico</div>
-								<div><textarea rows="10" name="comment" id="comment"></textarea></div>
+							<form method="POST" action="">
+								{% csrf_token %}
+								{{ formulario0.as_p }}
+								{{ formulario1.as_p }}
+								<input type="hidden" id="id_bus" name="id_bus" value="">
 								<div><input type="submit" name="value" value="Guardar"></div>
 							</form>
 						</div>
@@ -127,9 +234,11 @@
 				</div>
 			</div>
 		</div-->
-		
 		<div class="row copyright">
-			<p>Copyright © 2014 - <a href="http://www.zerotheme.com/432/free-responsive-html5-css3-website-templates.html" target="_blank">Angela</a> by <a href="http://www.zerotheme.com" target="_blank">Gualy</a></p>
+			<p>
+			 <center>
+			copyright © 2014- Angela & Gualy</p>
+			 </center>
 		</div>
 	</div>
 </footer>

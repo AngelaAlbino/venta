@@ -1,61 +1,44 @@
-{% extends "base.html" %}
+{% extends "base.html"%}
 {% block container %}
-
 <section id="content">
 	<div class="wrap-content zerogrid">
 		<div class="row block03">
 			<div class="col-2-3">
 				<div class="wrap-col">
 
+					<h1>Formulario de registro de Cliente</h1>
+					<script>
+						$(document).ready(poner);
+						function poner(){
+								$("#id_nit_cliente").val({{ nit }});
+								$("#id_cantidad").val({{ cuantos }});
+								$("#id_costo_total").val({{ total }});
+								$("#id_asiento").val({{ asiento }});
+								$("#id_bus").val({{ idbus }});
+							}
+					</script>
+					<div class="comment">
 
-	<form action="" method="POST" name="formu">
-		<h1>Formulario Ususarios</h1>
-		{% csrf_token %}
-		{{ formularioUsuarios.as_p }}
-		
-		<button type='submit' value='submit' onClick="passwords(this);">GUARDAR</button>
-		<button type='reset' value='reset'>BORRAR</button>
-		<h2>Fin de formulario</h2>
-	</form>
-
-				</div>
-			</div>
-			<!--div class="col-1-3">
-				<div class="wrap-col">
-					<div class="box">
-						<div class="heading"><h2>Latest Albums</h2></div>
-						<div class="content">
-							<img src="images/albums.png"/>
-						</div>
-					</div>
-					<div class="box">
-						<div class="heading"><h2>Upcoming Events</h2></div>
-						<div class="content">
-							<div class="list">
-								<ul>
-									<li><a href="#">Magic Island Ibizacmd</a></li>
-									<li><a href="#">Bamboo Is Just For You</a></li>
-									<li><a href="#">Every Hot Summer</a></li>
-									<li><a href="#">Magic Island Ibiza</a></li>
-									<li><a href="#">Bamboo Is Just For You</a></li>
-									<li><a href="#">Every Hot Summer</a></li>
-								</ul>
-							</div>
-						</div>
+						<form method="POST" action="/db/menu/guardadolink/">
+							{% csrf_token %}
+							{{ formu3.as_p }}
+							<input type="hidden" id="id_bus" name="id_bus" value="">
+							<div><input type="submit" name="value" value="Guardar"></div>
+						</form>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
-<!--------------Footer-------------->
+
 <footer>
-	<!--div class="wrap-footer zerogrid">
+	<div class="wrap-footer zerogrid">
 		<div class="row block09">
 			<div class="col-1-4">
 				<div class="wrap-col">
 					<div class="box">
-						<div class="heading"><h2>About Us</h2></div>
+						<!--div class="heading"><h2>About Us</h2></div>
 						<div class="content">
 							<p>Fusce suscipit varius mi. Cum sociis natoque penatibus et magnis dis natoque penatibus.</p>
 							<p>Fusce suscipit varius mi. Cum sociis natoque penatibus et magnis dis natoque penatibus.</p>
@@ -106,11 +89,13 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		
+		</div-->
 		<div class="row copyright">
-			<p>Copyright © 2013 - <a href="http://www.zerotheme.com/432/free-responsive-html5-css3-website-templates.html" target="_blank">Free Html5 Templates</a> by <a href="http://www.zerotheme.com" target="_blank">Zerotheme.com</a></p>
+			<p>
+			 <center>
+			copyright © 2014- Angela & Gualy</p>
+			 </center>
 		</div>
-	</div-->
+	</div>
 </footer>
-{% endblock %}
+{%endblock%}

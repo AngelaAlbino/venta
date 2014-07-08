@@ -41,7 +41,6 @@ class Rutas(models.Model):
 		return self.origen+" - "+self.destino
 
 
-
 class Bus(models.Model):
 	numero_de_placa=models.CharField(max_length=10, verbose_name="Numero_de_placa")
 	nombre=models.CharField(max_length=20, null=True, verbose_name="Nombre")
@@ -97,17 +96,18 @@ class Usuarios(models.Model):
 		
 
 class Venta(models.Model):
-	fecha_registro=models.DateField()
+	fecha_registro=models.DateField(auto_now=True)
 	cantida=models.CharField(max_length=10, verbose_name="Cantidad")
 	costo_total=models.CharField(max_length=25, verbose_name="Costo_total")
 	estado=models.CharField(max_length=10, verbose_name="Estado")
+	numero_de_asiento=models.IntegerField()
 	#-------------------Relacion de llaves con BUS-------------------------
 	#id_bus=models.ForeignKey(Bus)
 	id_salida=models.ForeignKey(Salidas)
 	#-----------------------------------------------------------------------
 	id_cliente=models.ForeignKey(Cliente)
 	#-----------------------------------------------------------------------
-	id_usuario=models.ForeignKey(Usuarios)
+	#id_usuario=models.ForeignKey(Usuarios)
 	def __unicode__(self):
 		return self.id_bus
 
@@ -117,7 +117,7 @@ class Factura(models.Model):
 	N_autorizacion=models.CharField(max_length=20, verbose_name="N_autorizacion")
 	nit_empresa=models.CharField(max_length=20, verbose_name="nit")
 	codi_control=models.CharField(max_length=40,verbose_name="codi_control")
-	fecha_emision=models.DateTimeField()
+	fecha_emision=models.DateTimeField(auto_now=True)
 	nit_cliente=models.CharField(max_length=20, verbose_name="nit_cliente")
 	nombre_cliente=models.CharField(max_length=50, verbose_name="nombre_cliente")
 	origen=models.CharField(max_length=20, verbose_name="doci_ini")
@@ -125,7 +125,7 @@ class Factura(models.Model):
 	Nun_asiento=models.IntegerField()
 	costo_total=models.CharField(max_length=20, verbose_name="total") 
 	fecha_salida=models.DateField()
-	hora_salida=models.DateField()
+	hora_salida=models.DateField(choices=HORAS)
 	codi_control=models.CharField(max_length="40",verbose_name="codi_control")
 
 

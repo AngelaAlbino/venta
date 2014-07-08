@@ -48,6 +48,10 @@ class NuevoUsuarioForm(ModelForm):
 	class Meta ():
 		model=Usuario
 
+class newpass(forms.Form):
+	actual_password=forms.CharField(widget=forms.PasswordInput)
+		
+
 class CambioForm(ModelForm):
 	password= forms.CharField (widget=forms.PasswordInput)
 	nuevo= forms.CharField (widget=forms.PasswordInput)
@@ -94,24 +98,34 @@ class BusForm(forms.Form):
 	    # TODO: Define form fields here
 
 class VentaForm(forms.Form):
-	fecha_registro=forms.DateField(error_messages={"required": "registre por favor"})
+	#fecha_registro=forms.DateField(error_messages={"required": "registre por favor"})
 	cantidad=forms.CharField(error_messages={"required": "Introdusca el nombre del bus"})
 	costo_total=forms.CharField(error_messages={"required": "Introdusca la marca del bus"})
-	asientos=forms.CharField(error_messages={"required": "registre por favor"})
-	precio=forms.CharField(error_messages={"required": "registre por favor"})
-	nit_cliente=forms.DateField(error_messages={"required": "registre por favor"})
-	nombre_completo=forms.CharField(error_messages={"required": "Introdusca nombre y apellido Porfavor"})
-	direccion=forms.CharField(error_messages={"required": "registre porfavor"})
-	telefono=forms.CharField(error_messages={"required": "registre porfavor"})
-	email=forms.EmailField(error_messages={"required": "registre porfavor"})
-
-class ClienteForm(forms.Form):
-	nit_cliente=forms.DateField(error_messages={"required": "registre por favor"})
+	asiento=forms.CharField(error_messages={"required": "registre por favor"})
+	
+	#precio=forms.CharField(error_messages={"required": "registre por favor"})
+'''class VentaForm(forms.Form):
+	class Meta():
+		model=Venta'''
+    # TODO: Define form fields here
+    
+	
+class ClienteForm2(forms.Form):
+	#nit_cliente=forms.DateField(error_messages={"required": "registre por favor"})
+	nit_cliente=forms.CharField(error_messages={"required": "registre por favor"})
+	cantidad=forms.CharField(error_messages={"required": "Introdusca el nombre del bus"})
+	costo_total=forms.CharField(error_messages={"required": "Introdusca la marca del bus"})
+	asiento=forms.CharField(error_messages={"required": "registre por favor"})
 	nombre_cliente=forms.CharField(error_messages={"required": "Introdusca nombre y apellido Porfavor"})
 	direccion=forms.CharField(error_messages={"required": "registre porfavor"})
 	telefono=forms.IntegerField(error_messages={"required": "registre porfavor"})
 	email=forms.EmailField(error_messages={"required": "registre porfavor"})
 	ciudad=forms.CharField(error_messages={"required": "registre porfavor"})
+	
+class ClienteForm(forms.Form):
+	nit_cliente=forms.CharField(error_messages={"required": "registre por favor"})
+    
+		
 
 DIAS=(
 	('01', '01'), ('02', '02'), ('03', '03'), ('04', '04'), ('05', '05'), ('06', '06'), ('07', '1990'),  ('08', '08'), ('09', '09'), ('10', '10'),
@@ -155,7 +169,10 @@ class SalidasForm(ModelForm):
 	class Meta:
 		model=Salidas
 
-
+class FacturaForm(ModelForm):
+    class Meta:
+        model = Factura
+    
 
 '''class SalidasForm(forms.Form):	
 	hora_salida=forms.TimeField(widget=forms.Select(choices=HORAS), error_messages={"required": "No se introdujo una hora de salida"})'''
